@@ -1,0 +1,23 @@
+{
+    "Slack login password": {
+        "screenshot": ".images/slack-login-password-screenshot.png",
+        "source": "https://robocorp-developers.slack.com/",
+        "strategy": "id",
+        "type": "browser",
+        "value": "password"
+    },
+    "Slack login sign in button": {
+        "screenshot": ".images/slack-login-sign-in-button-screenshot.png",
+        "source": "https://robocorp-developers.slack.com/",
+        "strategy": "id",
+        "type": "browser",
+        "value": "signin_btn"
+    },
+    "Slack login username": {
+        "screenshot": ".images/slack-login-username-screenshot.png",
+        "source": "https://robocorp-developers.slack.com/",
+        "strategy": "id",
+        "type": "browser",
+        "value": "email"
+    }
+}

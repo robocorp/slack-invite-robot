@@ -35,13 +35,13 @@ Send invite
     Press Keys  css:button[data-qa="invite-to-workspace-modal-invite-form-send-button"]  RETURN
     # Wait until invites are sent and invitees list appears.
     # TODO: consider verifying the invitee list contains our user to be invited?
-    Wait Until Page Contains Element  css:span[data-qa="invites-summary-message-header-invitees-list"]    
+    Wait Until Page Contains Element  css:span[data-qa="invites-summary-message-header-invitees-list"]
 
 *** Tasks ***
 Invite user to Slack
     ${invitee_email}=       Get work item variable    email
     Log                     Inviting ${invitee_email} to Slack workspace ${SLACK_WORKSPACE_ID}
     Open Available Browser  https://${SLACK_WORKSPACE_ID}.slack.com/admin
-    ${secret}=              Get Secret    slack-credentials
+    ${secret}=              Get Secret    slack_invite_credentials
     Login to Slack          ${secret}[username]     ${secret}[password]
     Send invite             ${invitee_email}

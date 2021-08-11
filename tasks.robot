@@ -1,6 +1,6 @@
 *** Settings ***
-Documentation   Template robot main suite.
-Library         RPA.Browser.Selenium
+Documentation   Slack invite bot
+Library         RPA.Browser.Playwright
 Library         RPA.Robocloud.Secrets
 Library         RPA.Robocloud.Items
 
@@ -26,6 +26,7 @@ Send invite
     Click Button When Visible  class:p-admin_table_wrapper__invite_btn
     # Input email of user to invite once dialog is open
     Input Text When Element Is Visible  id:invite_modal_select  ${invitee_email}
+
     # Press enter on invitee list to trigger verification of emails
     Press Keys  css:div[data-qa="invite_modal_select"]  RETURN
     # Give time for verification to complete
@@ -41,7 +42,10 @@ Send invite
 Invite user to Slack
     ${invitee_email}=       Get work item variable    email
     Log                     Inviting ${invitee_email} to Slack workspace ${SLACK_WORKSPACE_ID}
-    Open Available Browser  https://${SLACK_WORKSPACE_ID}.slack.com/admin
+    #New Page                https://${SLACK_WORKSPACE_ID}.slack.com/admin
+    Open Browser            https://${SLACK_WORKSPACE_ID}.slack.com/admin
     ${secret}=              Get Secret    slack_invite_credentials
     Login to Slack          ${secret}[username]     ${secret}[password]
     Send invite             ${invitee_email}
+
+

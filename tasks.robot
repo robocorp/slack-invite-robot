@@ -44,7 +44,8 @@ Send invite
 
 *** Tasks ***
 Invite user to Slack
-    Set Selenium Implicit Wait  5 seconds
+    Set Selenium Implicit Wait  5
+    Set Selenium Timeout    30
     ${invitee_email}=       Get work item variable    email
     Log                     Inviting ${invitee_email} to Slack workspace ${SLACK_WORKSPACE_ID}
     Open Available Browser  https://${SLACK_WORKSPACE_ID}.slack.com/admin

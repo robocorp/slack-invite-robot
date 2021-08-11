@@ -1,5 +1,6 @@
 *** Settings ***
-Documentation   Template robot main suite.
+Documentation   Invite user to Slack workspace
+Library         String
 Library         RPA.Browser.Selenium
 Library         RPA.Robocloud.Secrets
 Library         RPA.Robocloud.Items
@@ -12,11 +13,10 @@ ${SLACK_WORKSPACE_ID}=  robocorp-developers
 Login to Slack
     [Arguments]     ${user_name}    ${password}
     Wait Until Page Contains Element  alias:Slack login username
-    # I am not sure why but login email doesnt always get filled
-    # unless we give the form some time...
     Sleep  1
-    Input Text      alias:Slack login username   ${user_name}
+    Input Text      alias:Slack login username  ${user_name}
     Input Password  alias:Slack login password  ${password}
+    Sleep  1
     Click Button   	//button[@id="signin_btn"]
 
 *** Keywords ***
@@ -25,9 +25,14 @@ Send invite
     # Click "Invite People" button once it appears
     Click Button When Visible  class:p-admin_table_wrapper__invite_btn
     # Input email of user to invite once dialog is open
-    Input Text When Element Is Visible  id:invite_modal_select  ${invitee_email}
+    Wait Until Page Contains Element  //div[@data-qa="invite_modal_select"]
+    Sleep  1
+    # Email addresses may have '+', which is treated as a special
+    # character by Press Keys
+    ${escaped_email}=  Replace String  ${invitee_email}  +  \ue025
+    Press Keys  //div[@data-qa="invite_modal_select"]  ${escaped_email}
     # Press enter on invitee list to trigger verification of emails
-    Press Keys  css:div[data-qa="invite_modal_select"]  RETURN
+    Press Keys  //div[@data-qa="invite_modal_select"]  RETURN
     # Give time for verification to complete
     Sleep  3
     # Press "Send" button.
@@ -39,6 +44,7 @@ Send invite
 
 *** Tasks ***
 Invite user to Slack
+    Set Selenium Implicit Wait  5 seconds
     ${invitee_email}=       Get work item variable    email
     Log                     Inviting ${invitee_email} to Slack workspace ${SLACK_WORKSPACE_ID}
     Open Available Browser  https://${SLACK_WORKSPACE_ID}.slack.com/admin

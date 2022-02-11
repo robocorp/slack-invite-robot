@@ -40,7 +40,7 @@ Send invite
     Press Keys  css:button[data-qa="invite-to-workspace-modal-invite-form-send-button"]  RETURN
     # Wait until invites are sent and invitees list appears.
     # TODO: consider verifying the invitee list contains our user to be invited?
-    Wait Until Page Contains Element  css:span[data-qa="invites-summary-message-header-invitees-list"]
+    Wait Until Page Contains Element  css:span[data-qa="invite-entity-invitee"]
 
 *** Tasks ***
 Invite user to Slack

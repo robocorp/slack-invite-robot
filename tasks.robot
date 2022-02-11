@@ -2,8 +2,8 @@
 Documentation   Invite user to Slack workspace
 Library         String
 Library         RPA.Browser.Selenium
-Library         RPA.Robocloud.Secrets
-Library         RPA.Robocloud.Items
+Library         RPA.Robocorp.Vault
+Library         RPA.Robocorp.WorkItems
 
 
 *** Variables ***
@@ -14,8 +14,9 @@ Login to Slack
     [Arguments]     ${user_name}    ${password}
     Wait Until Page Contains Element  alias:Slack login username
     Sleep  1
-    Input Text      alias:Slack login username  ${user_name}
-    Input Password  alias:Slack login password  ${password}
+    Input Text When Element Is Visible  //input[@data-qa="login_email"]  ${user_name}
+    Press Keys  //input[@data-qa="login_email"]  CONTROL + A
+    Input Password  //input[@data-qa="login_password"]  ${password}
     Sleep  1
     Click Button   	//button[@id="signin_btn"]
 

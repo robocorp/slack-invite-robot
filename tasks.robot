@@ -2,8 +2,8 @@
 Documentation   Invite user to Slack workspace
 Library         String
 Library         RPA.Browser.Selenium
-Library         RPA.Robocloud.Secrets
-Library         RPA.Robocloud.Items
+Library         RPA.Robocorp.Vault
+Library         RPA.Robocorp.WorkItems
 
 
 *** Variables ***

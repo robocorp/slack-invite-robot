@@ -1,15 +1,12 @@
+# Generated environment configuration file.
+
+# Editing this file manually can prevent the project from being
+# opened in Automation Studio.
+
 channels:
-  # Define conda channels here.
   - conda-forge
-
 dependencies:
-  # Define conda packages here.
-  # If available, always prefer the conda version of a package, installation will be faster and more efficient.
-  # https://anaconda.org/search
-  - python=3.7.5
-
+  - python=3.7.12
   - pip=20.1
   - pip:
-    # Define pip packages here.
-    # https://pypi.org/
-    - rpaframework==11.4.0 # https://rpaframework.org/releasenotes.html
+    - rpaframework==12.9.0

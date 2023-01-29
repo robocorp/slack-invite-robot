@@ -9,5 +9,5 @@ dependencies:
   - python=3.9.13
   - pip=22.1.2
   - pip:
-    - rpaframework==17.6.0
-    - rpaframework-windows==6.1.0
+    - rpaframework==19.4.2
+    - rpaframework-windows==6.2.0

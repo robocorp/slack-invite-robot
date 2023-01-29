@@ -1,9 +1,8 @@
 [
-  {
-      "payload": {
-         "email": "sampo+invite-test-4@robocorp.com"
-      },
-      "files": {
-      }
-  }
+    {
+        "files": {},
+        "payload": {
+            "email": "sampo+invite-test-4@robocorp.com"
+        }
+    }
 ]

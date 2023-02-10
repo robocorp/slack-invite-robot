@@ -23,7 +23,7 @@ Login to Slack
 Send invite
     [Arguments]     ${invitee_email}
     # Click "Invite People" button once it appears
-    Click Button When Visible  class:p-admin_table_wrapper__invite_btn
+    Click Button When Visible  //button[@data-qa="page_header_primary_button"]
     # Input email of user to invite once dialog is open
     Wait Until Page Contains Element  //div[@data-qa="invite_modal_select"]
     Sleep  1

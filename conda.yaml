@@ -6,8 +6,7 @@
 channels:
   - conda-forge
 dependencies:
-  - python=3.9.13
-  - pip=22.1.2
+  - python=3.10.12
+  - pip=23.2.1
   - pip:
-    - rpaframework==19.4.2
-    - rpaframework-windows==6.2.0
+    - rpaframework==27.3.0

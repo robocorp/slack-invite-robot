@@ -9,4 +9,4 @@ dependencies:
   - python=3.10.12
   - pip=23.2.1
   - pip:
-    - rpaframework==27.3.0
+    - rpaframework==27.7.0

@@ -7,7 +7,7 @@ Library         RPA.Robocorp.WorkItems
 
 
 *** Variables ***
-${SLACK_WORKSPACE_ID}=  robocorp-developers
+${SLACK_WORKSPACE_ID}=  sema4ai-users
 
 *** Keywords ***
 Login to Slack
